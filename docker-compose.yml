@@ -1,0 +1,14 @@
+version: "3"
+services:
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - ./data/sonar.mv.db:/opt/sonarqube/data/sonar.mv.db:delegated
+
+volumes:
+  sonarqube_data:
